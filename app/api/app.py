@@ -1431,7 +1431,7 @@ def checkStatus(order_id):
                     "invoice_link": invoice_link
                 })
 
-                # send_email_with_invoice(email, invoice_path)
+                send_email_with_invoice(email, invoice_path)
 
                 return jsonify({
                     "status": True,
@@ -1564,7 +1564,7 @@ def generate_invoice(receipt_data):
         pdf.set_xy(136, 128)
         pdf.cell(0, 10, f"18", ln=True)
         pdf.set_xy(170, 120)
-        pdf.cell(0, 10, f"{receipt_data['baseAmount'] - 254.27}", ln=True)
+        pdf.cell(0, 10, f"{float(receipt_data['baseAmount']) - 254.24}", ln=True)
         pdf.set_xy(170, 144)
         pdf.cell(0, 10, f"{receipt_data['gst']/2}", ln=True)
         pdf.set_xy(170, 152)
